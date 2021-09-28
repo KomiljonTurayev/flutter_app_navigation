@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_navigation/detail_screen.dart';
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
         children: [
           Container(
             color: Colors.red,
-            child: list.isNotEmpty
+            child: Platform.isIOS
                 ? TextButton(
                     onPressed: () {
                       if (list.isNotEmpty) {
@@ -45,7 +47,9 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   )
-                : Text('empty'),
+                : Platform.isAndroid
+                    ? Text("bu ios")
+                    : SizedBox(),
           )
         ],
       ),
